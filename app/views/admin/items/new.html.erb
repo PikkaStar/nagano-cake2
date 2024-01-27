@@ -1,0 +1,47 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 mx-auto">
+      <h2 class="title">商品登録</h2>
+      <%= form_with model: @item,url: admin_items_path,method: :post do |f| %>
+        <div class="form-group row">
+          <div class="col-md-3">
+            <%= f.label :name,"商品名" %>
+          </div>
+          <div class="col-md-9">
+            <%= f.text_field :name,autofocus: true %>
+          </div>
+        </div>
+        <div class="form-group row">
+          <div class="col-md-3">
+            <%= f.label :description,"説明" %>
+          </div>
+          <div class="col-md-9">
+            <%= f.text_area :description,rows: 5 %>
+          </div>
+        </div>
+        <div class="form-group row">
+          <div class="col-md-3">
+            <%= f.label :excluding_tax_price,"税抜き価格" %>
+          </div>
+          <div class="col-md-9">
+            <%= f.number_field :excluding_tax_price,placeholder: "1000"%>円
+          </div>
+        </div>
+        <div class="form-group row">
+          <div class="col-md-3">
+            <%= f.label :is_active,"販売ステータス" %>
+          </div>
+          <div class="col-md-9">
+            <%= f.radio_button :is_active, true %>販売中
+            <%= f.radio_button :is_active, false %>販売停止中
+          </div>
+        </div>
+        <div class="form-group row">
+          <div class="col-md-12">
+            <%= f.submit "登録", class: "btn btn-success" %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

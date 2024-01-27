@@ -1,0 +1,7 @@
+<%= form_with model: genre,url: admin_genres_path,method: :post do |f| %>
+
+  <%= f.label :name,"ジャンル名" %>
+  <%= f.text_field :name %><br>
+  <%= f.submit "登録" %>
+
+<% end %>

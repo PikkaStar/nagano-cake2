@@ -11,11 +11,10 @@ Rails.application.routes.draw do
   namespace :admin do
     root to: "homes#top"
     resources :users,only: [:index,:edit,:show,:update]
-    resources :genres, only: [:index,:edit,:create,:update,:destroy]
+    resources :genres, only: [:index, :edit, :create, :update, :destroy]
     resources :items, except: [:destroy]
     resources :orders, only: [:show,:update]
     resources :order_details, only: [:show,:update]
-
   end
 
  scope module: :user do

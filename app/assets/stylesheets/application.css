@@ -16,3 +16,17 @@
 .title{
   font-size: 50px;
 }
+
+.field{
+    width: 50%;
+    margin: 30px auto;
+}
+
+.actions{
+    width: 50%;
+    margin: 30px auto;
+}
+
+.genre-thead{
+    background-color: #ffffe0;
+}
