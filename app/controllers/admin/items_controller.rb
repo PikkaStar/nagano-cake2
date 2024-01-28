@@ -1,6 +1,7 @@
 class Admin::ItemsController < ApplicationController
   def new
     @item = Item.new
+    @genres = Genre.all
   end
 
   def create
@@ -9,6 +10,7 @@ class Admin::ItemsController < ApplicationController
       flash[:notice] ="商品を登録しました"
       redirect_to admin_item_path(@item)
     else
+      @genres = Genre.all
       flash.now[:alert] = "登録に失敗しました"
       render :new
     end
@@ -16,6 +18,7 @@ class Admin::ItemsController < ApplicationController
 
   def index
     @items = Item.all
+    @genres = Genre.all
   end
 
   def show
@@ -41,6 +44,11 @@ class Admin::ItemsController < ApplicationController
     @item.destroy
     flash[:notice] = "商品を削除しました"
     redirect_to admin_items_path
+  end
+
+  private
+  def item_params
+    params.require(:item).permit(:name,:description,:excluding_tax_price,:is_active,:genre_id,:image)
   end
 
 end

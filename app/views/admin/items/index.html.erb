@@ -3,10 +3,17 @@
     <div class="col-md-10">
       <h1 class="title">商品一覧</h1>
         <table class="table">
-          <%= @items.each do |item| %>
+          <% @items.each do |item| %>
             <tr>
-              <td><%= image_tag item.image %></td>
+              <td><%= item.genre.name %></td>
               <td><%= item.name %></td>
+              <td>
+                <% if item.is_active == true %>
+                  販売中
+                <% else %>
+                  販売停止中
+                <% end %>
+              </td>
               <td><%= link_to "編集",edit_admin_item_path(item.id),class: "btn btn-secondary" %></td>
             </tr>
           <% end %>
