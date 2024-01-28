@@ -1,2 +1,16 @@
-<h1>Admins::Items#index</h1>
-<p>Find me in app/views/admins/items/index.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-10">
+      <h1 class="title">商品一覧</h1>
+        <table class="table">
+          <%= @items.each do |item| %>
+            <tr>
+              <td><%= image_tag item.image %></td>
+              <td><%= item.name %></td>
+              <td><%= link_to "編集",edit_admin_item_path(item.id),class: "btn btn-secondary" %></td>
+            </tr>
+          <% end %>
+        </table>
+    </div>
+  </div>
+</div>
