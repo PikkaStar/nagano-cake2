@@ -1,2 +1,76 @@
-<h1>Admin::Users#edit</h1>
-<p>Find me in app/views/admin/users/edit.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 mx-auto">
+      <h2 class="title"><%= @user.first_name %><%= @user.last_name %>さんの会員情報編集</h2>
+      <div class="row">
+       <%= form_with model: @user, url: edit_admin_user_path, method: :patch do |f| %>
+         <div class="col-md-6">
+           会員ID
+         </div>
+         <div class="col-md-6">
+           <%= @user.id %>
+         </div>
+         <div class="col-md-4">
+           氏名
+         </div>
+         <div class="col-md-4">
+           <%= f.text_field :first_name %>
+         </div>
+         <div class="col-md-4">
+           <%= f.text_field :last_name %>
+         </div>
+         <div class="col-md-4">
+           フリガナ
+         </div>
+         <div class="col-md-4">
+           <%= f.text_field :first_name_kana %>
+         </div>
+         <div class="col-md-4">
+           <%= f.text_field :last_name_kana %>
+         </div>
+         <div class="col-md-4">
+           郵便番号
+         </div>
+         <div class="col-md-4">
+           <%= f.text_field :postal_code %>
+         </div>
+         <div class="col-md-4">
+
+         </div>
+         <div class="col-md-4">
+           住所
+         </div>
+         <div class="col-md-8">
+           <%= f.text_field :address %>
+         </div>
+         <div class="col-md-4">
+           電話番号
+         </div>
+         <div class="col-md-4">
+           <%= f.text_field :phone_number %>
+         </div>
+         <div class="col-md-4">
+
+         </div>
+         <div class="col-md-4">
+           メールアドレス
+         </div>
+         <div class="col-md-4">
+           <%= f.text_field :email %>
+         </div>
+         <div class="col-md-4">
+
+         </div>
+         <div class="col-md-4">
+           会員ステータス
+         </div>
+         <div class="col-md-4">
+           <%= f.radio_button :is_active, true %>有効
+           <%= f.radio_button :is_active, false %>退会
+         </div>
+         <%= f.submit "更新", class: "btn btn-success" %>
+       <% end %>
+      </div>
+    </div>
+  </div>
+</div>

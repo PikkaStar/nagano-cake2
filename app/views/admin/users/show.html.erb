@@ -1,0 +1,57 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 mx-auto">
+      <h2 class="title"><%= @user.first_name %><%= @user.last_name %>さんの会員詳細</h2>
+      <div class="row">
+        <div class="col-md-6">
+          会員ID
+        </div>
+        <div class="col-md-6">
+          <%= @user.id %>
+        </div>
+        <div class="col-md-6">
+          氏名
+        </div>
+        <div class="col-md-6">
+          <%= @user.first_name %><%= @user.last_name %>
+        </div>
+        <div class="col-md-6">
+          フリガナ
+        </div>
+        <div class="col-md-6">
+          <%= @user.first_name_kana %><%= @user.last_name_kana %>
+        </div>
+        <div class="col-md-6">
+          郵便番号
+        </div>
+        <div class="col-md-6">
+          <%= @user.postal_code %>
+        </div>
+        <div class="col-md-6">
+          住所
+        </div>
+        <div class="col-md-6">
+          <%= @user.address %>
+        </div>
+        <div class="col-md-6">
+          電話番号
+        </div>
+        <div class="col-md-6">
+          <%= @user.phone_number %>
+        </div>
+        <div class="col-md-6">
+          メールアドレス
+        </div>
+        <div class="col-md-6">
+          <%= @user.email %>
+        </div>
+        <div class="col-md-6">
+          会員ステータス
+        </div>
+        <div class="col-md-6">
+          <%= is_active?(@user) %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
