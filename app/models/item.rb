@@ -9,4 +9,12 @@ class Item < ApplicationRecord
   validates :description, presence: true
   validates :excluding_tax_price, presence: true
 
+  def get_image(width, height)
+    if image.attached?
+      image.variant(resize_to_limit: [width, height]).processed
+    else
+      "no_image"
+    end
+  end
+
 end
