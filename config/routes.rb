@@ -20,7 +20,11 @@ Rails.application.routes.draw do
  scope module: :user do
   root to: 'homes#top'
   resources :users, only: [:show,:edit,:update]
-  resources :cart_items, only: [:index,:create,:update,:destroy]
+  resources :cart_items, only: [:index,:create,:update,:destroy] do
+    collection do
+      delete :destroy_all
+    end
+  end
   resources :items, only: [:index,:show]
   resources :orders,only: [:new,:create,:index,:show]
   resources :addresses, only: [:index,:create,:edit,:update,:destroy]

@@ -17,4 +17,8 @@ class Item < ApplicationRecord
     end
   end
 
+  def tax_price
+    (excluding_tax_price * 1.1).to_i
+  end
+
 end
