@@ -5,6 +5,7 @@
     </div>
     <div class="col-md-6">
       <% if user_signed_in? %>
+        <%= link_to "マイページ", user_path(current_user) %>
         <%= link_to "商品一覧", items_path %>
         <%= link_to "ログアウト", destroy_user_session_path,method: :delete %>
       <% elsif admin_signed_in? %>
