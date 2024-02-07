@@ -1,2 +1,22 @@
-<h1>User::Items#index</h1>
-<p>Find me in app/views/user/items/index.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+      ジャンル<br>
+      <% @genres.each do |genre| %>
+        <%= genre.name %><br>
+      <% end %>
+    </div>
+    <div class="col-md-8">
+      <h2>商品一覧</h2>
+      <div style="display: flex;">
+        <% @items.each do |item| %>
+          <div style="margin-right: 20px;"> <!-- オプション: 要素間の間隔を設定 -->
+            <%= image_tag item.get_image(150,150) %><br>
+            <%= link_to item.name, item_path(item) %><br>
+            <%= item.excluding_tax_price %>円
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

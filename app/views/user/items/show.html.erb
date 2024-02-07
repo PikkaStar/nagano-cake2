@@ -1,2 +1,18 @@
-<h1>User::Items#show</h1>
-<p>Find me in app/views/user/items/show.html.erb</p>
+<div class="container">
+  <div class="row my-auto">
+    <div class="col-md-4 my-auto">
+      ジャンル<br>
+      <% @genres.each do |genre| %>
+        <%= genre.name %><br>
+      <% end %>
+    </div>
+    <div class="col-md-4">
+      <%= image_tag @item.get_image(200,200) %>
+    </div>
+    <div class="col-md-4">
+      <%= @item.name %><br>
+      <%= @item.description %><br>
+      <%= (@item.excluding_tax_price * 1.1).to_i %>(税込)
+    </div>
+  </div>
+</div>
